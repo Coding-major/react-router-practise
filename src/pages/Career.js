@@ -5,7 +5,7 @@ export default function Career() {
     return (
         <div>
             <h2>{career.title}</h2>
-            <p>{career.slary}</p>
+            <p>{career.salary}</p>
             <p>{career.location}</p>
             <p>The job is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a 
@@ -20,5 +20,8 @@ export const careerLoader = async({params}) => {
     const {id} = params
 
     const response = await fetch(`http://localhost:4000/careers/${id}`)
+    if(!response.ok) {
+        throw Error("Could not find page/career")
+    }
     return response.json()
 }

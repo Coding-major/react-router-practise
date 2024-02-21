@@ -20,6 +20,8 @@ export default function Careers() {
 //loader function
 export const careersLoader = async () => {
     const response = await fetch("http://localhost:4000/careers")
-
+    if (!response.ok) {
+        throw Error("routes for jobs does not exist")
+    }
     return response.json()
 }

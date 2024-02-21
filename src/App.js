@@ -10,6 +10,7 @@ import Discussion from "./pages/Discussion";
 import NotFound from "./pages/NotFound";
 import Careers, { careersLoader } from "./pages/Careers";
 import Career, {careerLoader} from "./pages/Career";
+import CareerError from "./pages/CareerError";
 
 
 
@@ -26,12 +27,14 @@ const router = createBrowserRouter(
           <Route 
             index 
             element={<Careers />}
-            loader={careersLoader} />
+            loader={careersLoader}
+            errorElement={<CareerError />} />
         
         <Route 
           path=":id" 
           element={<Career />}
-          loader={careerLoader} />
+          loader={careerLoader}
+          errorElement={<CareerError />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Route>
