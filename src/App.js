@@ -7,6 +7,8 @@ import About from "./pages/About";
 import Faq from "./pages/faq";
 import Discussion from "./pages/Discussion";
 import NotFound from "./pages/NotFound";
+import Career, { careerLoader } from "./pages/Career";
+import CareersLayout from "./layouts/CareersLayout";
 
 
 const router = createBrowserRouter(
@@ -17,6 +19,12 @@ const router = createBrowserRouter(
       <Route path="help" element={<HelpLayout />}>
         <Route path="faq" element={<Faq />} />
         <Route path="discussion" element={<Discussion />} />
+      </Route>
+      <Route path="careers" element={<CareersLayout />}>
+        <Route 
+          index 
+          element={<Career />}
+          loader={careerLoader} />
       </Route>
 
       <Route path="*" element={<NotFound />} />

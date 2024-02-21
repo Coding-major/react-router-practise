@@ -8,6 +8,7 @@ export default function Home() {
                     <h1>JOB REACT</h1>
                     <NavLink to="help">Help</NavLink>
                     <NavLink to="about">About</NavLink>
+                    <NavLink to="careers">Careers</NavLink>
                 </nav>
             </header>
             <p>
