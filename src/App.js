@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Faq from "./pages/faq";
 import Discussion from "./pages/Discussion";
+import NotFound from "./pages/NotFound";
 
 
 const router = createBrowserRouter(
@@ -17,6 +18,8 @@ const router = createBrowserRouter(
         <Route path="faq" element={<Faq />} />
         <Route path="discussion" element={<Discussion />} />
       </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 )
