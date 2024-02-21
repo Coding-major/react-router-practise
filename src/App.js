@@ -23,18 +23,16 @@ const router = createBrowserRouter(
         <Route path="faq" element={<Faq />} />
         <Route path="discussion" element={<Discussion />} />
       </Route>
-      <Route path="careers" element={<CareersLayout />}>
+      <Route path="careers" element={<CareersLayout />} errorElement={<CareerError />}>
           <Route 
             index 
             element={<Careers />}
-            loader={careersLoader}
-            errorElement={<CareerError />} />
+            loader={careersLoader} />
         
         <Route 
           path=":id" 
           element={<Career />}
-          loader={careerLoader}
-          errorElement={<CareerError />} />
+          loader={careerLoader} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Route>
