@@ -1,9 +1,11 @@
-import { useLoaderData } from "react-router-dom"
+import { Link, useLoaderData } from "react-router-dom"
 export default function Career() {
     //const {id} = useParams()
     const career = useLoaderData()
     return (
+        
         <div>
+            <div><Link to='/careers'><button>Careers</button></Link></div>
             <h2>{career.title}</h2>
             <p>{career.salary}</p>
             <p>{career.location}</p>

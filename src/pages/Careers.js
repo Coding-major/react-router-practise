@@ -1,18 +1,30 @@
+import { useState } from "react"
 import { useLoaderData, Link } from "react-router-dom"
 
 export default function Careers() {
     const careers = useLoaderData()
+    const [paramid, setParamID] = useState('');
+
+    function changeID(event) {
+        setParamID(event.target.value)
+    }
 
     return (
         <div>
-            {careers.map(career => (
-                <Link to={`${career.id}`} key={career.id}>
-                    <div style={{background: "#2a2b2a"}}>
-                        <p>{career.title}</p>
-                        <p>Based in {career.location}</p>
-                    </div>
-                </Link>
-            ))}
+            <div>
+                {careers.map(career => (
+                    <Link to={`${career.id}`} key={career.id}>
+                        <div style={{background: "#2a2b2a"}}>
+                            <p>{career.title}</p>
+                            <p>Based in {career.location}</p>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+            <div style={{background: "#2a2b2a"}}>
+                <input style={{background: "#46484d"}} type="text" onChange={changeID} />
+                <Link to={`${paramid}`}><button >findJob</button></Link>
+            </div>
         </div>
     )
 }
