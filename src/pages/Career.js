@@ -1,25 +1,24 @@
-import { useLoaderData, Link } from "react-router-dom"
-
+import { useLoaderData } from "react-router-dom"
 export default function Career() {
-    const careers = useLoaderData()
-
+    //const {id} = useParams()
+    const career = useLoaderData()
     return (
         <div>
-            {careers.map(career => (
-                <Link to='/' key={career.id}>
-                    <div style={{background: "#2a2b2a"}}>
-                        <p>{career.title}</p>
-                        <p>Based in {career.location}</p>
-                    </div>
-                </Link>
-            ))}
+            <h2>{career.title}</h2>
+            <p>{career.slary}</p>
+            <p>{career.location}</p>
+            <p>The job is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a 
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into 
+                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         </div>
     )
 }
 
-//loader function
-export const careerLoader = async () => {
-    const response = await fetch("http://localhost:4000/careers")
+export const careerLoader = async({params}) => {
+    const {id} = params
 
+    const response = await fetch(`http://localhost:4000/careers/${id}`)
     return response.json()
 }
